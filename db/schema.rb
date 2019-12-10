@@ -10,7 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_10_181043) do
+ActiveRecord::Schema.define(version: 2019_12_10_185308) do
+
+  create_table "contacts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "record_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["record_id"], name: "index_contacts_on_record_id"
+    t.index ["user_id"], name: "index_contacts_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.integer "sender_id", null: false
+    t.integer "receiver_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["receiver_id"], name: "index_messages_on_receiver_id"
+    t.index ["sender_id"], name: "index_messages_on_sender_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -25,4 +44,8 @@ ActiveRecord::Schema.define(version: 2019_12_10_181043) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "contacts", "users"
+  add_foreign_key "contacts", "users", column: "record_id"
+  add_foreign_key "messages", "users", column: "receiver_id"
+  add_foreign_key "messages", "users", column: "sender_id"
 end
