@@ -1,24 +1,9 @@
 # README
+for install the ngrok:
+`$ brew cask install ngrok`
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+for run ngrok on port 3000:
+`$ ngrok http 3000`
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+then in other tab:
+`rails s`

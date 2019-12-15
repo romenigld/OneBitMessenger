@@ -5,6 +5,8 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width initial-scale=1">
+    <link rel="manifest" href="/manifest.json">
+    <%= favicon_link_tag asset_path('favicon-192px.png') %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -26,32 +28,32 @@
             <div class="navbar-item has-text-white-ter has-text-weigth-bold is-size-5">
               <%= yield :title %>
             </div>
-            
+
             <div class="navbar-burger burger has-text-white-ter" data-show="quickview" data-target="left-sidebar">
               <span></span>
               <span></span>
               <span></span>
             </div>
           </div>
-  
+
           <div class="navbar-burger burger has-text-white-ter desktop-burger is-hidden-touch" data-show="quickview" data-target="left-sidebar">
             <span></span>
             <span></span>
             <span></span>
           </div>
         </div>
-        
+          
         <%= render "layouts/sidebar" %>
       </nav>
     <% end %>
-    
+
     <section class="section">
       <div class="container">
         <% if alert %>
           <div class="notification is-danger"><%= alert %></div>
         <% elsif notice %>
           <div class="notification is-success"><%= notice %></div>
-        <% end %>
+        <% end%>
         <%= yield %>
       </div>
     </div>
