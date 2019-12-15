@@ -2,7 +2,7 @@ import consumer from "./consumer"
 
 consumer.subscriptions.create("MessageChannel", {
   connected() {
-    console.log("connect at MessageChannel")
+    console.log("Connected at MessageChannel")
   },
 
   received(data) {
